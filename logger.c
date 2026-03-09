@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
-
-
-
+#include "logger.h"
 
 void logger(char *logfileName) {
     
@@ -13,17 +11,15 @@ void logger(char *logfileName) {
 
     //if file doesnt exist return errors
     if(file == NULL){
-        
+
         perror("Error opening a file");
         exit(EXIT_FAILURE);
     
     }
+    //Lets get the first non-whitespace characters 
+
+
     //Always close the file at the end after write operations.
     fclose(file);
 
-}
-
-int main() {
-    logger("testfile.txt");
-    return 0;
 }
