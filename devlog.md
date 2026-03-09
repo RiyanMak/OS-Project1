@@ -24,3 +24,21 @@ determine if the code is running as intended
   and how to exactly work with it 
 
 ---
+
+## 2026-03-09 1:50
+
+### Initial Thoughts
+
+I need to build a logger function which can open a text file and write the log message in this format 
+YYYY-MM-DD HH:MM [ACTION] MESSAGE
+
+### Overall Plan
+
+Will have to use some sort of time library in c and then will also have to use a library that will allow us 
+I/O operations on a file
+
+### Open Questions
+
+- Not sure how to correctly implement the logger program for encryption and decryption might need to refactor later
+
+---
