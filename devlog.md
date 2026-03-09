@@ -42,3 +42,20 @@ I/O operations on a file
 - Not sure how to correctly implement the logger program for encryption and decryption might need to refactor later
 
 ---
+
+
+## 2026-03-09 16:55
+
+### Initial Thoughts
+
+Have to handle errors when file doesn't exist and select the mode for the file
+
+### Overall Plan
+
+Will have to use some sort of time library in c and then will also have to use a library that will allow us 
+I/O operations on a file. Might need some libraries in C to return errors for file not existing as well
+
+### Open Questions
+
+-- how to exactly take the command line arguments are write it into the file
+---
