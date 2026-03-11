@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <time.h>
 #include "logger.h"
 
 void logger(char *logfileName) {
@@ -66,6 +67,17 @@ void logger(char *logfileName) {
     snprintf(ActionString, sizeof(ActionString), "[%s]", Action);
     snprintf(MessageString, sizeof(MessageString), " %s", Message);
 
+
+    time_t now;
+    struct tm *timeinfo;
+    char buffer[20];
+
+    time(&now);
+    timeinfo = localtime(&now);
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M ", timeinfo);
+
+
+    fputs(buffer, file);
     fputs(ActionString,file);
     fputs(MessageString, file);
     fputs("\n", file);
