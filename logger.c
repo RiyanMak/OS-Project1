@@ -60,17 +60,28 @@ void logger(char *logfileName) {
        };
     Action[i] = '\0';
 
+    //now we will start writing to the log file 
+    char ActionString[105];
+    char MessageString[300];
+    snprintf(ActionString, sizeof(ActionString), "[%s]", Action);
+    snprintf(MessageString, sizeof(MessageString), " %s", Message);
 
+    fputs(ActionString,file);
+    fputs(MessageString, file);
+    fputs("\n", file);
         //we will compare the strings lexiographically
         if(strcmp(Action, exit) == 0){
+            
+            //Always close the file at the end after write operations.
+                fclose(file);
 
             break;
+            
         };
-       printf("%s\n", Action);
-       printf("%s\n", Message);
     };
 
-    //Always close the file at the end after write operations.
-    fclose(file);
+
+
+
 
 }
