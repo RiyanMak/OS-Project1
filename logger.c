@@ -16,7 +16,15 @@ void logger(char *logfileName) {
         exit(EXIT_FAILURE);
     
     }
-    //Lets get the first non-whitespace characters 
+    //Lets get the first non-whitespace characters
+    char exit[] = "EXIT";
+
+    //loop to keep running to listen for log Actions and messages
+    while(1){
+        
+
+    }
+
 
 
     //Always close the file at the end after write operations.

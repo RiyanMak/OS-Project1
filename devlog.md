@@ -57,5 +57,21 @@ I/O operations on a file. Might need some libraries in C to return errors for fi
 
 ### Open Questions
 
--- how to exactly take the command line arguments are write it into the file
+- how to exactly take the command line arguments are write it into the file
+---
+
+## 2026-03-11 16:05
+
+### Initial Thoughts
+
+I have to read the argument passed using standard input will need to implement either a buffer or some array to hold that value
+
+### Overall Plan
+
+Will have to implement an array to hold the value of the ACTION and Message. Might need to implement a buffer to hold the values temporarily.
+
+### Open Questions
+
+- I dont know exactly on how this will be done and if this is the correct approach i am going to attempt it
+
 ---
