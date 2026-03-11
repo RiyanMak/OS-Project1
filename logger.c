@@ -17,15 +17,58 @@ void logger(char *logfileName) {
     
     }
     //Lets get the first non-whitespace characters
-    char exit[] = "EXIT";
-
-    //loop to keep running to listen for log Actions and messages
-    while(1){
-        
-
+    char *input = (char*)malloc(100 * sizeof(char));
+    
+    //if malloc fails exit the program rather than crashing
+    if(input == NULL){
+        perror("Malloc failed");
+        exit(EXIT_FAILURE);
     }
 
 
+    char exit[] = "EXIT";
+    char Action[100];
+    char Message[250];
+
+    //loop to keep running to listen for log Actions and messages
+    while(1){
+       scanf("%[^\n]%*c", input);
+
+       //loop through the input string to find the first word
+       int i = 0;
+       char currentChar;
+
+       while(1){
+        char currentChar = input[i];
+        if(currentChar == ' '){
+            
+            //put everything else in the Message array
+            int k = 0;
+            for (int j = i + 1; j < strlen(input); j++){
+                Message[k] = input[j];
+                k++;
+            }
+            Message[k] = '\0'; 
+
+            //after that break
+            break;
+        }
+        else{
+            Action[i] = currentChar;
+            i++;
+        }
+       };
+    Action[i] = '\0';
+
+
+        //we will compare the strings lexiographically
+        if(strcmp(Action, exit) == 0){
+
+            break;
+        };
+       printf("%s\n", Action);
+       printf("%s\n", Message);
+    };
 
     //Always close the file at the end after write operations.
     fclose(file);
