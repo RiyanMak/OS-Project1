@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include "logger.h"
+#include "encryption.h"
 
 void logger(char *logfileName) {
     
@@ -82,5 +83,5 @@ void logger(char *logfileName) {
     free(input);
     fclose(file);
 
-
+    encryption(Action, Message);
 }

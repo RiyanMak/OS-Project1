@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "logger.h"
+#include "encryption.h"
 
 int main(int argc, char *argv[]) {
 
