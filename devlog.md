@@ -75,3 +75,20 @@ Will have to implement an array to hold the value of the ACTION and Message. Mig
 - I dont know exactly on how this will be done and if this is the correct approach i am going to attempt it
 
 ---
+
+
+## 2026-03-13 12:00
+
+### Initial Thoughts
+
+I have completed the logger program and now onto the encryption 
+### Overall Plan
+
+I am going to manually trace on paper given a test string
+like HELLO and try to write psuedocode for it
+
+### Open Questions
+
+- There are many ways to implement Vingere Cypher just have to find a method that works for me
+
+---

@@ -1,11 +1,13 @@
 CC = gcc
 CFLAGS = -Wall -Wextra
 
-TARGET = enc
-SRCS = main.c logger.c encryption.c
+all: logger encryption
 
-$(TARGET): $(SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
+logger: main.c logger.c
+	$(CC) $(CFLAGS) main.c logger.c -o logger
+
+encryption: encryption.c
+	$(CC) $(CFLAGS) encryption.c -o encryption
 
 clean:
-	rm -f $(TARGET)
+	rm -f logger encryption
