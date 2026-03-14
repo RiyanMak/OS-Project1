@@ -81,7 +81,7 @@ Will have to implement an array to hold the value of the ACTION and Message. Mig
 
 ### Initial Thoughts
 
-I have completed the logger program and now onto the encryption 
+I have completed the logger program and now onto the encryption
 ### Overall Plan
 
 I am going to manually trace on paper given a test string
@@ -90,5 +90,40 @@ like HELLO and try to write psuedocode for it
 ### Open Questions
 
 - There are many ways to implement Vingere Cypher just have to find a method that works for me
+
+---
+
+## 2026-03-13 13:30
+
+### Initial Thoughts
+
+Encryption is done and working. Tested it with HELLO and the key HELLO and got OIWWC which matches what the spec shows so that is good. Now i have to work on the driver program which is the hardest part since i have to fork two processes and connect them with pipes.
+
+### Overall Plan
+
+Will have to use fork twice, once for the logger and once for the encryption program.
+Then use pipe and dup2 to connect their stdin and stdout to the driver.
+Then implement the command loop with password, encrypt, decrypt, history, and quit.
+Also have to make sure passwords are never logged and that input is validated to be letters only.
+
+### Open Questions
+
+- Not totally sure how to manage all the pipe ends correctly, going to have to be careful about what to close in each child vs the parent
+
+---
+
+## 2026-03-13 15:30
+
+### Initial Thoughts
+
+Driver is done and tested. The hardest part was keeping track of which pipe ends to close in each process. Also ran into a bug where i was sending "QUIT Driver exiting." to the logger but since QUIT is what tells the logger to stop, it was never actually writing the exit message to the log file. Had to fix it so the exit message gets logged first and then QUIT gets sent separately. Also noticed the history command was not being logged so i added that in.
+
+### Overall Plan
+
+Just have to write the README now and then zip everything up to submit.
+
+### Open Questions
+
+- Nothing left, just wrapping up
 
 ---

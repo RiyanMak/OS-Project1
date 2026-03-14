@@ -394,6 +394,8 @@ int main(int argc, char *argv[]) {
         //handle the history command - print all strings stored this session
         else if(strcmp(command, "history") == 0) {
             show_history(history, history_count);
+            fprintf(log_write, "HISTORY History displayed.\n");
+            fflush(log_write);
         }
 
         //handle the quit command - shut down both child processes and exit
@@ -403,8 +405,12 @@ int main(int argc, char *argv[]) {
             fprintf(enc_write, "QUIT\n");
             fflush(enc_write);
 
-            //log the quit and send QUIT to the logger
-            fprintf(log_write, "QUIT Driver exiting.\n");
+            //log the exit BEFORE sending QUIT to the logger (QUIT is not logged)
+            fprintf(log_write, "EXIT Driver exiting.\n");
+            fflush(log_write);
+
+            //now signal the logger to quit
+            fprintf(log_write, "QUIT\n");
             fflush(log_write);
 
             //close all streams so the children receive EOF
